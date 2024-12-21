@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./transfer.scss";
-import copied from "../../assets/copied.svg";
+// import copied from "../../assets/copied.svg";
 import ConfirmationModal from "../confirmation/ConfirmationModal";
 
 const Transfer = ({ onClose }) => {

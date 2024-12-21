@@ -7,6 +7,7 @@ function EmailVerification() {
   const [resendTimer, setResendTimer] = useState(30);
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
+  
   const navigate = useNavigate();
 
   const handleChange = (e) => {
