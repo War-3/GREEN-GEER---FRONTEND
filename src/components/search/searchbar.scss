@@ -1,0 +1,47 @@
+@import "../Scss//extends";
+@import "../Scss//includes";
+@import "../Scss//variables";
+
+#SearchBar {
+  width: $width;
+  background-color: $background;
+
+  form {
+    width: $max;
+    margin: $margin;
+    @include flex-column;
+    padding-top: 20px;
+    // height: 60px;
+
+    .container {
+      display: flex;
+      align-items: center;
+      width: $max;
+      border: 1px solid #ccc;
+      border-radius: 100px;
+      padding: 10px;
+      background-color: white;
+
+      input {
+        flex: 1;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        margin-left: 10px;
+      }
+
+      button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        font-size: 16px;
+      }
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+  }
+}

@@ -1,0 +1,94 @@
+.section {
+  .delivery-details {
+    padding: 10px;
+    h4 {
+      margin: 15px 0 10px;
+      font-weight: bold;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+
+      select {
+        flex: 1;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      .location-btn {
+        color: #4caf50;
+        border: none;
+        padding: 8px 10px;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: 700;
+      }
+    }
+
+    .pickup-options {
+      div {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin: 10px 0;
+
+        input {
+          margin-top: 5px;
+        }
+
+        span {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .doorstep-info {
+      margin-top: 15px;
+
+      img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+      }
+
+      .item-card {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        background-color: #f9f9f9;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+
+        div {
+          p {
+            margin: 0;
+            font-weight: bold;
+          }
+          span {
+            font-size: 14px;
+            color: #777;
+          }
+        }
+      }
+    }
+
+    button {
+      width: 346px;
+      height: 54px;
+      border-radius: 100px;
+      margin-top: 27px;
+      background-color: #a0a8a0;
+      color: white;
+      border-style: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #4caf50;
+    }
+  }
+}

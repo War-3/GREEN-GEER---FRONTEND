@@ -1,0 +1,26 @@
+@import "../Scss//extends";
+@import "../Scss//includes";
+@import "../Scss//variables";
+
+#Footer1 {
+  .section {
+    @include flex-between;
+    // height: 142px;
+    background-color: white;
+    padding: 3rem;
+    margin-top: 100px;
+    margin-bottom: -100px;
+    border-radius: 20px;
+
+    h5 {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .same {
+      display: $flex;
+      gap: 8px;
+      align-items: center;
+    }
+  }
+}

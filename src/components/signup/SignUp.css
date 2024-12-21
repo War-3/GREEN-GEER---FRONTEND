@@ -1,0 +1,156 @@
+.container {
+  display: flex;
+  /* height: 100vh; */
+  /* width: 100vw; */
+  width: 1440px;
+  background-color: #f4f4f4;
+  border-radius: 7px;
+  margin: auto;
+  margin-top: 70px;
+}
+
+.form-container {
+  flex: 1;
+  width: 542px;
+  height: 100vh;
+  margin: auto 5rem;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding-top: 100px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.form-container h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+.form-container label {
+  font-weight: bold;
+}
+
+.error-text {
+  color: red;
+}
+
+.input {
+  width: 99%;
+  padding: 10px;
+  margin: 7px 0;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+
+.signup-button {
+  width: 99%;
+  padding: 10px;
+  margin: 7px 0;
+  background-color: #079607;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.signup-button:hover {
+  background-color: white;
+  color: #079607;
+  border: 2px solid #079607;
+}
+
+.google-button {
+  width: 95%;
+  padding: 6px;
+  margin: 5px 0;
+  background-color: #fff;
+  color: #079607;
+  border: 2px solid #079607;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.apple-button {
+  width: 95%;
+  padding: 3px;
+  margin: 3px 0;
+  background-color: #fff;
+  color: #079607;
+  border: 2px solid #079607;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.google-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 2px solid #079607;
+  border-radius: 100px;
+  width: 100%;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.apple-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 2px solid #079607;
+  border-radius: 100px;
+  width: 100%;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.google-button img {
+  width: 15px;
+  height: 20px;
+  margin-right: 10px;
+}
+.apple-button img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.login-text {
+  margin-top: 10px;
+  color: #666;
+  font-weight: bold;
+  text-align: center;
+}
+.login-text a {
+  text-decoration: none;
+  font-weight: bolder;
+  color: #079607;
+}
+
+.image-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f4f4;
+}
+
+.image {
+  /* width: 100%; */
+  width: 720px;
+  height: 100vh;
+  object-fit: cover;
+}
+@media (max-width: 480px) {
+  .image-container {
+    display: none;
+  }
+  .container {
+    align-content: center;
+    background-image: url(https://www.deere.co.in/assets/images/region-1/products/tractors/john-deere-e-series-cab.jpg);
+  }
+}
+

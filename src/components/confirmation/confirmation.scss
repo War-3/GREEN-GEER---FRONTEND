@@ -1,0 +1,56 @@
+.success-icon {
+  font-size: 3rem;
+  color: #28a745;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.thanks-message {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.order-details {
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 20px;
+
+  strong {
+    color: #333;
+  }
+}
+
+.suggestion {
+  font-size: 0.8rem;
+  text-align: center;
+  margin-bottom: 20px;
+
+  a {
+    color: #28a745;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.back-to-home {
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  background: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    background: #218838;
+  }
+}

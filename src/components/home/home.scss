@@ -1,0 +1,63 @@
+@import "../Scss//extends";
+@import "../Scss//includes";
+@import "../Scss//variables";
+
+#Home {
+  width: $width;
+  background-color: $background;
+  .section {
+    width: $max;
+    // height: 641px;
+    margin: $margin;
+    margin-top: 61px;
+
+    .part2 {
+      background-color: $background;
+      margin-top: 38px;
+      @include flex-around;
+
+      .rent {
+        width: 866px;
+
+        h5 {
+          font-size: 48px;
+        }
+        p {
+          font-size: 18px;
+          color: #828282;
+          margin-top: 8px;
+        }
+      }
+      button {
+        background-color: $color1;
+        color: white;
+        width: 308px;
+        height: 54px;
+        border-radius: 100px;
+        border-style: $border;
+        cursor: pointer;
+      }
+    }
+
+    .part3 {
+      padding-top: 43px;
+      display: $flex;
+      gap: 22px;
+      width: 629px;
+      button {
+        width: 195px;
+        height: 50px;
+        border-radius: 20px;
+        border-style: none;
+        font-size: 16px;
+        color: white;
+        background-color: #bdbdbd;
+        cursor: pointer;
+      }
+      :hover {
+        background-color: $color3;
+        border-radius: 20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,94 @@
+@import "../Scss//extends";
+@import "../Scss//includes";
+@import "../Scss//variables";
+
+#Equipments {
+  .section {
+    margin: $margin;
+    max-width: 1284px;
+    padding-top: 100px;
+
+    ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 32px;
+
+      .parts {
+        h3 {
+          font-size: 18px;
+          margin-top: 15px;
+          margin-bottom: 13px;
+        }
+
+        h6 {
+          font-size: 15px;
+        }
+
+        p {
+          color: gray;
+          margin-bottom: 24px;
+        }
+
+        .flex {
+          display: $flex;
+          text-align: $align;
+          gap: 10px;
+        }
+        .flex2 {
+          display: $flex;
+          align-items: $align;
+          gap: 40px;
+        }
+
+        button {
+          background-color: $color1;
+          width: 101px;
+          height: 50px;
+          border-radius: 100px;
+          border-style: $border;
+          color: #fdfefd;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .same:hover {
+      background-color: #ffffff;
+      border: 3px solid #ffffff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .cart-available {
+      //   @include flex-between;
+      display: $flex;
+      gap: 200px;
+    }
+    .relative {
+      border-radius: 10px;
+      position: relative;
+
+      .status {
+        position: absolute;
+        top: 24px;
+        background-color: $color1;
+        color: white;
+        border-radius: 50px;
+        width: 74px;
+        height: 20px;
+        text-align: center;
+
+        h5 {
+          padding: 2px;
+        }
+      }
+
+      .carts {
+        position: absolute;
+        top: 24px;
+        padding-left: 16px;
+        cursor: pointer;
+      }
+    }
+  }
+}

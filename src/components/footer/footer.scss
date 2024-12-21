@@ -1,0 +1,38 @@
+@import "../Scss//extends";
+@import "../Scss//includes";
+@import "../Scss//variables";
+
+#Footer {
+  //   background-color: #f9f8f5;
+
+  .section {
+    width: $width;
+    background-color: #023202;
+    @include flex-between;
+    margin-top: 138px;
+    p {
+      color: white;
+      padding: 2rem;
+      height: 58px;
+    }
+
+    .socials {
+      //   @include flex-center;
+      display: $flex;
+      gap: 20px;
+      padding: 2rem;
+    }
+    .facebook {
+      cursor: pointer;
+    }
+    .instagram {
+      cursor: pointer;
+    }
+    .twitter {
+      cursor: pointer;
+    }
+    .linkedin {
+      cursor: pointer;
+    }
+  }
+}

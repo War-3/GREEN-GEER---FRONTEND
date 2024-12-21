@@ -1,0 +1,68 @@
+.payment-method {
+  //   padding: 10px;
+  .payment-option {
+    // display: flex;
+    // flex-direction: column;
+    // gap: 10px;
+    margin: 15px 0;
+
+    input[type="radio"] {
+      margin-top: 5px;
+      float: inline-start;
+    }
+
+    h4 {
+      margin: 0;
+      font-weight: bold;
+    }
+
+    p {
+      margin: 5px 0;
+      color: #777;
+    }
+
+    .same {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .cards {
+      padding-left: 20px;
+
+      .card-options {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        div {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          input {
+            margin-right: 5px;
+          }
+
+          span {
+            font-size: 14px;
+            font-weight: 600;
+          }
+        }
+
+        .add-card {
+          button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            font-size: 16px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
