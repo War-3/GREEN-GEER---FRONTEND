@@ -1,8 +1,160 @@
+// import React, { useState, useEffect } from "react";
+// import "./description.scss";
+// import StarRating from "../star-rating/StarRating";
+// import { cartsData } from "../atom/carts";
+// import { Link, useParams } from "react-router-dom";
+// import EquipmentList from "../equipments/EquipmentList" 
+
+
+// const Description = () => {
+//   let [carts, setCarts] = useRecoilState(cartsData);
+  
+//     function addToCart(data) {
+//       if (carts.find((x) => x.id === data.id)) {
+//         console.log("already added to cart");
+//       } else {
+//         console.log("added to cart");
+  
+//         setCarts([...carts, data]);
+//       }
+//     }
+
+//   const { _id } = useParams(); // Assuming the equipment ID is passed in the URL.
+//   const [equipment, setEquipment] = useState(null);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
+
+//   useEffect(() => {
+//     // Fetch equipment details from the API
+//     const fetchEquipmentDetails = async () => {
+//       try {
+//         const response = await fetch(`http://127.0.0.1:8040/api/equipment/:id/${_id}`);
+//         setEquipment(response.data);
+//         setLoading(false);
+//       } catch (err) {
+//         setError("Failed to load equipment details.");
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchEquipmentDetails();
+//   }, [_id]);
+
+//   if (loading) return <p>Loading...</p>;
+//   if (error) return <p>{error}</p>;
+
+//   return (
+//     <div id="Description">
+//       <div className="section1">
+//         <img
+//           src={equipment.image}
+//           alt={equipment.name}
+//           loading="lazy"
+//         />
+//       </div>
+
+//       <div className="john">
+//         <span>
+//           <h3>{equipment.name}</h3>
+//         </span>
+//         <span>
+//           <button>{equipment.availability ? "Available" : "Unavailable"}</button>
+//         </span>
+//       </div>
+
+//       <div className="rent">
+//         <Link to={"/Checkout"}>
+//           <div className="first">
+//             <button>Rent Now</button>
+//           </div>
+//         </Link>
+
+//         <div className="second">
+//           <div>
+//             <button className="add" onClick={() => addToCart(EquipmentList)}>Add To Cart</button>
+//           </div>
+//         </div>
+//       </div>
+
+//       <div className="section2">
+//         <div className="div1">
+//           <h3>Product Details</h3>
+//           <p>{equipment.description}</p>
+//         </div>
+
+//         <div className="div2">
+//           <div className="specification">
+//             <h4>Specifications:</h4>
+//             <ul>
+//               {equipment.specifications.map((spec, index) => (
+//                 <li key={index}>
+//                   <b>{spec.label}:</b> {spec.value}
+//                 </li>
+//               ))}
+//             </ul>
+//           </div>
+
+//           <div className="features">
+//             <h4>Features:</h4>
+//             <ul>
+//               {equipment.features.map((feature, index) => (
+//                 <li key={index}>
+//                   <b>{feature.label}:</b> {feature.value}
+//                 </li>
+//               ))}
+//             </ul>
+//           </div>
+//         </div>
+//       </div>
+
+//       <div className="section3">
+//         <h3>Verified Customer Feedback</h3>
+//         <hr />
+
+//         <div className="div3">
+//           <div className="rating">
+//             <h5>RATINGS</h5>
+//             <div className="verified">
+//               <p>
+//                 <b>{equipment.rating.average}/5</b>
+//               </p>
+//               <div>
+//                 <StarRating totalStars={5} currentRating={equipment.rating.average} />
+//               </div>
+//               <p>{equipment.rating.count} Verified Ratings</p>
+//             </div>
+//           </div>
+
+//           <div className="comments">
+//             <h5>Comments from Verified Customers</h5>
+//             {equipment.reviews.map((review, index) => (
+//               <div className="review" key={index}>
+//                 <h6>{review.name}</h6>
+//                 <div>
+//                   <StarRating totalStars={5} currentRating={review.rating} />
+//                 </div>
+//                 <p>“{review.comment}”</p>
+//                 <p>{new Date(review.date).toLocaleDateString()}</p>
+//                 <hr />
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Description;
+
 import React from "react";
 import "./description.scss";
 import StarRating from "../star-rating/StarRating";
+import { Link } from "react-router-dom";
+
 
 const Description = () => {
+ 
   return (
     <div id="Description">
       <div className="section1">
@@ -21,11 +173,15 @@ const Description = () => {
           <button>Available</button>
         </span>
       </div>
-
+      
+                    
+                  
       <div className="rent">
+      <Link to={"/Checkout"}>
         <div className="first">
           <button>Rent Now</button>
         </div>
+        </Link>
         <div className="second">
           {/* <div>
             <img
@@ -33,9 +189,9 @@ const Description = () => {
               alt="cart"
             />
           </div> */}
-          <div>
-            <button className="add">Add To Cart</button>
-          </div>
+          {/* <div>
+            <button className="add" onClick={() => addToCart(equipments)}>Add To Cart</button>
+          </div> */}
         </div>
       </div>
 
@@ -161,3 +317,6 @@ const Description = () => {
 };
 
 export default Description;
+
+
+

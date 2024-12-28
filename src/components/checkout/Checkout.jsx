@@ -1,21 +1,38 @@
 import React, { useState } from "react";
 import "./checkout.scss";
-import { Link } from "react-router-dom";
-import CheckoutPage2 from "../checkout2/CheckoutPage2";
-import CheckoutPage3 from "../checkout3/CheckoutPage3";
-import { useLocation } from "react-router-dom";
+
 import { useRecoilValue } from "recoil";
 import { subtotalState } from "../atoms/subtotal";
+import CheckoutPage3 from "../checkout3/CheckoutPage3";
+import { states } from "./states.json"; // Assuming you have the correct JSON file for states.
 
 const CheckoutPage = () => {
   const [activeSection, setActiveSection] = useState(1); // Default active section
+  const [formData, setFormData] = useState({
+    customerId: "",
+    equipmentId: "",
+    phoneNumber: "",
+    state: "",
+    deliveryAddress: "",
+    isDefaultAddress: false,
+  });
+  const [deliveryOption, setDeliveryOption] = useState(""); // New state for delivery option
 
   const subtotal = useRecoilValue(subtotalState);
 
-  //   const location = useLocation();
-  //   const { subtotal } = location.state || { subtotal: 0 }; // Default subtotal to 0 if undefined
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
 
-  console.log("Subtotal on checkout page:", subtotal);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form Submitted:", formData);
+    // Add logic for form submission here if necessary
+  };
 
   return (
     <div id="CheckoutPage">
@@ -31,73 +48,184 @@ const CheckoutPage = () => {
             <span>1. CUSTOMER ADDRESS</span>
           </div>
           {activeSection === 1 && (
-            <form className="form">
+            <form className="form" onSubmit={handleSubmit}>
               <div className="row">
                 <div>
                   <label>Customer ID</label>
-                  <input type="text" placeholder="Enter your ID" />
+                  <input
+                    type="text"
+                    placeholder="Enter your ID"
+                    name="customerId"
+                    value={formData.customerId}
+                    onChange={handleChange}
+                  />
                 </div>
                 <div>
                   <label>Equipment ID</label>
-                  <input type="text" placeholder="Enter Equipment ID" />
+                  <input
+                    type="text"
+                    placeholder="Enter Equipment ID"
+                    name="equipmentId"
+                    value={formData.equipmentId}
+                    onChange={handleChange}
+                  />
                 </div>
               </div>
               <div className="row">
                 <div>
                   <label>Phone Number</label>
-                  <input type="text" placeholder="+234" />
+                  <input
+                    type="text"
+                    placeholder="+234"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
+                    onChange={handleChange}
+                  />
                 </div>
                 <div>
                   <label>State</label>
-                  <select>
+                  <select
+                    name="state"
+                    value={formData.state}
+                    onChange={handleChange}
+                  >
                     <option>Select State</option>
-                    <option>Lagos</option>
-                    <option>Abuja</option>
-                    <option>Kano</option>
+                    {states.map((state, index) => (
+                      <option key={index} value={state}>
+                        {state}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>
 
               <label>Delivery Address</label>
-              <input type="text" placeholder="Enter delivery address" />
+              <input
+                type="text"
+                placeholder="Enter delivery address"
+                name="deliveryAddress"
+                value={formData.deliveryAddress}
+                onChange={handleChange}
+              />
 
               <div className="default">
                 <div className="default-address">
                   <div>
-                    <input type="checkbox" />
+                    <input
+                      type="checkbox"
+                      name="isDefaultAddress"
+                      checked={formData.isDefaultAddress}
+                      onChange={handleChange}
+                    />
                   </div>
                   <label>Set as default address</label>
                 </div>
+              </div>
 
-                <div className="actions">
-                  <button type="button" className="cancel">
-                    Cancel
-                  </button>
-                  <button type="submit" className="save">
-                    Save
-                  </button>
+              {/* 2. DELIVERY DETAILS */}
+              <div className="section-header">
+                <span>2. DELIVERY DETAILS</span>
+              </div>
+
+              <div className="delivery-details">
+                <h4>Station Pick-up</h4>
+                <p>Pick up from any of our stations near you.</p>
+
+                <div className="row">
+                  <label>Select a pick-up station</label>
+                  <select>
+                    <option>Lagos</option>
+                    <option>Abuja</option>
+                  </select>
+                  <div type="button" className="location-btn">
+                    Use my current location
+                  </div>
                 </div>
+
+                <div>
+                  <div>
+                
+                    <span>
+                      <b>Greengear pickup station</b>
+                      <br />
+                      Shop 2 Kiki shopping complex, Ajara dokoh Badagry roundabout,
+                      Lagos Nigeria.
+                    </span>  <tr><input
+                      type="radio"
+                      name="delivery"
+                      checked={deliveryOption === "pickup"}
+                      onChange={() => setDeliveryOption("pickup")}
+                    /></tr>
+                  </div>
+
+                  <div >
+                    
+                    <span>
+                      <b>Greengear pickup station</b>
+                      <br />
+                      Kiki shopping complex, Ajara dokoh Badagry roundabout, Lagos
+                      Nigeria.
+                    </span><tr><input
+                      type="radio"
+                      name="delivery"
+                      checked={deliveryOption === "pickup2"}
+                      onChange={() => setDeliveryOption("pickup2")}
+                    /></tr>
+                  </div>
+                </div>
+
+                
+                <div>
+                
+                  <span><b>Door Step Delivery</b>
+                  <br />Get your equipment delivered to your door step</span>
+                  <tr> <input
+                    type="radio"
+                    name="delivery"
+                    checked={deliveryOption === "doorstep"}
+                    onChange={() => setDeliveryOption("doorstep")}
+                  /></tr>
+                </div>
+
+                {deliveryOption === "doorstep" && (
+                  <div className="doorstep-info">
+                    <div className="item-card">
+                      <img
+                        src="https://res.cloudinary.com/drqaon7o8/image/upload/v1731659617/tractor_hednus.png"
+                        alt="tractor"
+                      />
+                      <div>
+                        <p>John Dey Tractor</p>
+                        <span>Qty: 1</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                <button>Save & Proceed to Payment</button>
               </div>
             </form>
           )}
         </div>
 
-        <CheckoutPage2 />
-        <CheckoutPage3 />
-      </div>
-      <div className="summary">
-        <h5>Cart Summary</h5>
-
-        <div className="sub">
-          <div>
-            <p>Sub-Total</p>
-          </div>
-          ₦{subtotal.toFixed(2)}
+        <div className="checkout-container">
+          {/* <CheckoutPage2 /> */}
+          <CheckoutPage3 />
         </div>
-        <p>Delivery fees not included yet</p>
 
-        <div>
-          <button>Pay</button>
+        <div className="summary">
+          <h5>Cart Summary</h5>
+
+          <div className="sub">
+            <div>
+              <p>Sub-Total</p>
+            </div>
+            ₦{subtotal.toFixed(2)}
+          </div>
+          <p>Delivery fees not included yet</p>
+
+          <div>
+            <button>Pay</button>
+          </div>
         </div>
       </div>
     </div>
@@ -107,6 +235,9 @@ const CheckoutPage = () => {
 export default CheckoutPage;
 
 
+
+
+// {/* 
 // import React, { useState, useEffect } from "react";
 // import { useNavigate } from "react-router-dom"; // Added import
 // import "./Checkout.css";
@@ -347,4 +478,4 @@ export default CheckoutPage;
 
 // export default Checkout;
 
-
+//  */}

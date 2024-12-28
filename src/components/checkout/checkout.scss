@@ -139,27 +139,27 @@
     }
   }
 
-  .section2 {
+  .section {
     .delivery-details {
       padding: 10px;
       h4 {
         margin: 15px 0 10px;
         font-weight: bold;
       }
-
+  
       .row {
         display: flex;
         align-items: center;
         gap: 10px;
         margin-bottom: 15px;
-
+  
         select {
           flex: 1;
           padding: 8px;
           border: 1px solid #ccc;
           border-radius: 4px;
         }
-
+  
         .location-btn {
           color: #4caf50;
           border: none;
@@ -169,33 +169,34 @@
           font-weight: 700;
         }
       }
-
+  
       .pickup-options {
         div {
           display: flex;
           align-items: flex-start;
           gap: 10px;
           margin: 10px 0;
-
+        
+  
           input {
-            margin-top: 5px;
+            margin-top: 20px;
           }
-
+  
           span {
             font-size: 14px;
           }
         }
       }
-
+  
       .doorstep-info {
         margin-top: 15px;
-
+  
         img {
           width: 80px;
           height: 80px;
           object-fit: cover;
         }
-
+  
         .item-card {
           display: flex;
           gap: 10px;
@@ -204,7 +205,7 @@
           padding: 10px;
           border: 1px solid #ddd;
           border-radius: 4px;
-
+  
           div {
             p {
               margin: 0;
@@ -217,7 +218,7 @@
           }
         }
       }
-
+  
       button {
         width: 346px;
         height: 54px;
@@ -232,5 +233,5 @@
         background-color: #4caf50;
       }
     }
-  }
-}
+  
+  }}
